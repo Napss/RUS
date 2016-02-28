@@ -15,7 +15,6 @@ void ioinit (void)
   
   {
     sinetable[i]=(char)(123.0+122.0*sin(2.0*3.14*f+a*i));
-    //sinetable[i]=i;
   }
   //Initialize output ports
   PORTD = B11111111;
