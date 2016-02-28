@@ -14,7 +14,7 @@ void ioinit (void)
   for (int i=0;i<359;i++)
   
   {
-    sinetable[i]=(char)(123.0+122.0*sin(2.0*3.14*(f+a*i)*(float)i/fe));
+    sinetable[i]=(char)(123.0+122.0*sin(2.0*3.14*f+a*i));
     //sinetable[i]=i;
   }
   //Initialize output ports
