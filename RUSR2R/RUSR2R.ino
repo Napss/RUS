@@ -3,8 +3,9 @@
 #include <stdio.h>
 char sinetable [360];
 int  i ;
-float fe=76923.0;
-float f=4000.0;
+//float fe=76923.0;
+float fe=153846.0;
+float f=32000.0;
 
 float tau = 1/f;
 float T = 359.0/fe;
@@ -14,7 +15,9 @@ void ioinit (void)
   for (int i=0;i<359;i++)
   
   {
-    sinetable[i]=(char)(123.0+122.0*sin(2.0*3.14*f+a*i));
+    //sinetable[i]=(char)(123.0+122.0*sin(2.0*3.14*(f+a*i)*(float)i/fe));
+    sinetable[i]=(char)(123.0+122.0*sin(2.0*3.14*f*(float)i/fe));
+    //sinetable[i]=i;
   }
   //Initialize output ports
   PORTD = B11111111;
@@ -23,7 +26,8 @@ void ioinit (void)
 
 void timer_setup(){
 ADMUX = B00100000;
-ADCSRA = B11101100;
+//ADCSRA = B11101100;
+ADCSRA = B11101011;
 ADCSRB = B00000000;
 DIDR0 = B00000000;
 
