@@ -46,10 +46,11 @@ Serial.begin(250000);
 
 void timer_setup2(){
   //pinMode(marker, OUTPUT); // pin = output
-  DIDR0 = 0x3F;            // digital inputs disabled
-  ADMUX = 0x43;            // measuring on ADC3, use the internal 1.1 reference
-  ADCSRA = 0xAC;           // AD-converter on, interrupt enabled, prescaler = 16
-  ADCSRB = 0x40;           // AD channels MUX on, free running mode
+  ADMUX = B01000011;            // measuring on ADC3, use the internal 1.1 reference
+  ADCSRA =B10101011;           // AD-converter on, interrupt enabled, prescaler = 16
+  ADCSRB =B01000000; 
+  DIDR0 = B00111111;            // digital inputs disabled
+          // AD channels MUX on, free running mode
   bitWrite(ADCSRA, 6, 1);  // Start the conversion by setting bit 6 (=ADSC) in ADCSRA
   sei();                   // set interrupt flag
 }
